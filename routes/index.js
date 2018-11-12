@@ -1,6 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
+//test
+var query = require('../blockchain/query');
+//test
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   
@@ -12,5 +16,8 @@ router.post('/clicke', (req, res) => {
   console.log(click);
   console.log("intercepted");
 });
+
+//query.functionName();
+
 
 module.exports = router;
