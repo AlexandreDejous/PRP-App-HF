@@ -1,8 +1,13 @@
+'use strict';
+/*
+* Copyright IBM Corp All Rights Reserved
+*
+* SPDX-License-Identifier: Apache-2.0
+*/
+/*
+ * Chaincode query
+ */
 
-  /*activate: function () {
-  	console.log ("activated");
-  }*/
-function activate(){
 var Fabric_Client = require('fabric-client');
 var path = require('path');
 var util = require('util');
@@ -18,7 +23,8 @@ channel.addPeer(peer);
 
 //
 var member_user = null;
-var store_path = path.join(__dirname, 'hfc-key-store');
+var custom_path = path.join(__dirname, '../../../hyperledger/fabric-samples(copy)/fabcar/hfc-key-store')
+var store_path = path.normalize(custom_path);
 console.log('Store path:'+store_path);
 var tx_id = null;
 
@@ -69,5 +75,4 @@ Fabric_Client.newDefaultKeyValueStore({ path: store_path
 	}
 }).catch((err) => {
 	console.error('Failed to query successfully :: ' + err);
-});}
-
+});

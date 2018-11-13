@@ -1,2 +1,3 @@
 //This file contains a variable whose purpose is to be shared among NodeJS files
-//requiring blockchain 
+//requiring blockchain files
+
