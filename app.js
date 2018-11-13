@@ -25,7 +25,7 @@ app.use('/users', usersRouter);
 //////////////////////////test area
 app.post('/clicked', (req, res) => {
   const click = {clickTime: new Date()};
-  console.log(click);
+  //console.log(click);
 });
 /////////////////////////test area
 
