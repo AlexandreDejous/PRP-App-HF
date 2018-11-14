@@ -20,7 +20,7 @@ router.post('/clicke', (req, res) => {
   var bunchOfCarData = query.queryCar();
   console.log('between1');
   console.log(bunchOfCarData);
-  console.log(query.queryCar());
+  //console.log(query.queryCar());
   console.log('between2');
   res.render('index', { title: 'Express', carData: bunchOfCarData});
 });

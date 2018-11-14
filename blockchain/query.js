@@ -73,10 +73,8 @@ var bundle ={
 				if (query_responses[0] instanceof Error) {
 					console.error("error from query = ", query_responses[0]);
 				} else {
-					//!!//console.log("Response is ", query_responses[0].toString());
+					console.log("Response is ", query_responses[0].toString());
 					responseToReturn = query_responses[0].toString();
-
-					//return responseToReturn;
 				}
 			} else {
 				console.log("No payloads were returned from query");
@@ -84,7 +82,9 @@ var bundle ={
 		}).catch((err) => {
 			console.error('Failed to query successfully :: ' + err);
 		});
-		return responseToReturn;
+		console.log("fired1");
+		console.log(responseToReturn);
+		console.log("fired2");
 	}
 }
 
