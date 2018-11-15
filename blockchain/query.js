@@ -9,12 +9,15 @@
  */
 var bundle ={
 
-	queryCar:function () { 
+	queryCar:function () {
+
+	  return new Promise(resolve => {
 
 		var Fabric_Client = require('fabric-client');
 		var path = require('path');
 		var util = require('util');
 		var os = require('os');
+		var events = require('events');
 
 		//
 		var fabric_client = new Fabric_Client();
@@ -75,6 +78,8 @@ var bundle ={
 				} else {
 					console.log("Response is ", query_responses[0].toString());
 					responseToReturn = query_responses[0].toString();
+					resolve (responseToReturn);
+					//return responseToReturn;
 				}
 			} else {
 				console.log("No payloads were returned from query");
@@ -82,10 +87,12 @@ var bundle ={
 		}).catch((err) => {
 			console.error('Failed to query successfully :: ' + err);
 		});
-		console.log("fired1");
-		console.log(responseToReturn);
-		console.log("fired2");
-	}
+		//console.log("fired1");
+		//console.log(responseToReturn);
+		//console.log("fired2");
+		//return responseToReturn;
+	  });
+    }
 }
 
 module.exports = bundle
