@@ -17,7 +17,6 @@ var bundle ={
 		var path = require('path');
 		var util = require('util');
 		var os = require('os');
-		var events = require('events');
 
 		//
 		var fabric_client = new Fabric_Client();
@@ -31,7 +30,7 @@ var bundle ={
 		var member_user = null;
 		var custom_path = path.join(__dirname, '../../../hyperledger/fabric-samples(copy)/fabcar/hfc-key-store')
 		var store_path = path.normalize(custom_path);
-		//console.log('Store path:'+store_path);
+		console.log('Store path:'+store_path);
 		var tx_id = null;
 
 		var responseToReturn = '';
@@ -87,10 +86,6 @@ var bundle ={
 		}).catch((err) => {
 			console.error('Failed to query successfully :: ' + err);
 		});
-		//console.log("fired1");
-		//console.log(responseToReturn);
-		//console.log("fired2");
-		//return responseToReturn;
 	  });
     }
 }

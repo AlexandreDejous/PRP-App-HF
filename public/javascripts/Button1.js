@@ -19,28 +19,5 @@ button.addEventListener('click', function(e) {
   console.log('button was clicked');
   XHR1("GET","/clicke","text_area");
 
-  /*fetch('/clicked', {method: 'POST'})
-    .then(function(response) {
-      if(response.ok) {
-        console.log('Click was recorded');
-        return;
-      }
-      throw new Error('Request failed.');
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
-  fetch('/clicke', {method: 'POST'})
-    .then(function(response) {
-      if(response.ok) {
-        console.log('Click was recorded');
-        return;
-      }
-      throw new Error('Request failed.');
-    })
-    .catch(function(error) {
-      console.log(error);
-    });*/
-
     
 });

@@ -22,13 +22,6 @@ app.use(express.static(path.join(__dirname, 'public'))); //The path to public
 app.use('/', indexRouter); //TRIGGERS WHEN URL, ACTIVATE JS (in routes)
 app.use('/users', usersRouter);
 
-//////////////////////////test area
-app.post('/clicked', (req, res) => {
-  const click = {clickTime: new Date()};
-  //console.log(click);
-});
-/////////////////////////test area
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
