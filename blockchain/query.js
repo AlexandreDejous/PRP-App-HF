@@ -1,17 +1,16 @@
 'use strict';
 /*
-* Copyright IBM Corp All Rights Reserved
-*
-* SPDX-License-Identifier: Apache-2.0
-*/
-/*
  * Chaincode query
  */
 var bundle ={
 
-	queryCar:function () {
+	query:function (func, Data) {//func is the blockchain function to send a request to
+		                         //Data is an optional field which must be used if we're
+		                         //querying a particular products or type of products
 
 	  return new Promise(resolve => {
+
+	  	
 
 		var Fabric_Client = require('fabric-client');
 		var path = require('path');
@@ -28,7 +27,7 @@ var bundle ={
 
 		//
 		var member_user = null;
-		var custom_path = path.join(__dirname, '../../../hyperledger/fabric-samples(copy)/fabcar/hfc-key-store')
+		var custom_path = path.join(__dirname, '../../Network/PRS/hfc-key-store')
 		var store_path = path.normalize(custom_path);
 		console.log('Store path:'+store_path);
 		var tx_id = null;
@@ -57,14 +56,33 @@ var bundle ={
 				throw new Error('Failed to get user1.... run registerUser.js');
 			}
 
-			// queryCar chaincode function - requires 1 argument, ex: args: ['CAR4'],
-			// queryAllCars chaincode function - requires no arguments , ex: args: [''],
-			const request = {
-				//targets : --- letting this default to the peers assigned to the channel
-				chaincodeId: 'fabcar',
-				fcn: 'queryAllCars',
-				args: ['']
-			};
+            var request = {};
+			if(func == 'queryProductByKey'){
+				request = {//Queries the product with the specified reference
+					//targets : --- letting this default to the peers assigned to the channel
+					chaincodeId: 'PRS',
+					fcn: 'queryProductByKey',
+					args: [Data]
+				};
+			}
+
+			if(func == 'queryAllProducts'){//queries all product by alphanumerical order of the reference/key 
+				request = {
+					
+					chaincodeId: 'PRS',
+					fcn: 'queryAllProducts',
+					args: ['']
+				};
+			}		
+
+			if(func == 'getHistoryForProduct'){//queries all product by alphanumerical order of the reference/key 
+				request = {
+					
+					chaincodeId: 'PRS',
+					fcn: 'getHistoryForProduct',
+					args: [Data]
+				};
+			}			
 
 			// send the query proposal to the peer
 			return channel.queryByChaincode(request);
@@ -77,6 +95,7 @@ var bundle ={
 				} else {
 					console.log("Response is ", query_responses[0].toString());
 					responseToReturn = query_responses[0].toString();
+					console.log("activated");
 					resolve (responseToReturn);
 					//return responseToReturn;
 				}

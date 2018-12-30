@@ -2,14 +2,58 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
-  button(id='myButton') Ready to be clicked
+  button(id='queryAll') Query all
+  p(id='text_area')
+  form(id="addProductForm")
+    input(type="text", name = "Reference", placeholder="Reference")
+    input(type="text", name ="Type", placeholder="Type", size="15")
+    input(type="text", name ="Brand", placeholder="Brand")
+    input(type="text", name ="Model", placeholder="Model")
+    input(type="text", name ="Volume/Lumens", placeholder="Volume/Lumens", size="7")
+    input(type="text", name ="Watts", placeholder="Watts", size="5")
+    br
+    input(type="submit", value="Add product")
+  p(id='add_area')
+  form(id="modifyProductForm")
+    input(type="text", name = "Reference", placeholder="Reference")
+    input(type="text", name ="Brand", placeholder="Brand")
+    input(type="text", name ="Model", placeholder="Model")
+    input(type="text", name ="Volume/Lumens", placeholder="Volume/Lumens", size="7")
+    input(type="text", name ="Watts", placeholder="Watts", size="5")
+    br
+    input(type="submit", value="Modify product")
+  p(id='modify_area')
+  form(id="changeStatusForm")
+    select(name="status")
+      option(value="accepted") Accepted
+      option(value="pending") Pending
+      option(value="rejected") Rejected
+    input(type="text", name ="Reference", placeholder="Reference")
+    input(type="text", name ="Market", placeholder="Market")
+    br
+    input(type="submit", value="Change status")
+  p(id='status_area')
+  form(id="searchProductForm")
+    input(type="text", name = "Reference", placeholder="Reference")
+    input(type="submit", value="Search product")
+  p(id='search_area')
+  form(id="historyForm")
+    input(type="text", name = "Reference", placeholder="Reference")
+    input(type="submit", value="Get history")
+  p(id='history_area')
+  p(id='line')
+  ul(id='instructions')
+    li Query all: Queries all products
+    li Add product: Adds a product. Fields "Reference" and "Type" are required. Issuing this request with the reference of an existing product will allow you to change its type and all its attribute, but its entire status will be reset to blank.
+    li Modify product: Modifies a product. Field "Reference" is required. Issuing this request will allow you to change all its attributes except its type and will keep unchanged its status.
+    li Change status: Changes the status of a product (its acceptance or not into a market). Field "Reference" is required.
+    li Search product: Queries a given product identified by its reference. Field "Reference" is required.
+    li Get history: Queries the history of changes for a given product identified by its reference. Field "Reference" is required.
 
-block Button1
-  script(src ="/javascripts/Button1.js")
+  p *For the moment, the only types are "refrigerator" and "lighting"
+
+block scripts
+  script(src ="/javascripts/request.js")
 
 
-  
 
-block Button2
-  p #{carData}
