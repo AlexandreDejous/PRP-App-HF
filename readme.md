@@ -3,7 +3,7 @@
 This repository provides an Express Application to interact with the Blockchain (https://github.com/AlexandreDejous/PRP-Chaincode-HF) without the CLI.
 To work correctly, this app requires you to install PRP-Chaincode-HF first.
 
-## Manual of the user
+## User guide
 
 * Clone this repository anywhere on your system.
 
