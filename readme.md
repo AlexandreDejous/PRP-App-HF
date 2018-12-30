@@ -12,7 +12,7 @@ To work correctly, this app requires you to install PRP-Chaincode-HF first.
 * Go to the blockchain folder `cd blockchain` and issue `npm install` again.
 
 * Now, open with a text editor query.js and invoke.js, they're situated in the blockchain folder.
-You need to change in the code their relative path pointing to the hfc-key-store (line 30 in query.js and 32 in invoke.js). The hfc-key-store is a folder created when the script enrollAdmin.js from PRP-Chaincode-HF is executed, itself executed by startFabric.sh . If you already installed PRP-Chaincode-HF, this folder is located at `PRP-Chaincode-HF/PRS/hfc-key-store`
+You need to change in the code their relative path pointing to the hfc-key-store (line 32 in query.js and 34 in invoke.js). The hfc-key-store is a folder created when the script enrollAdmin.js from PRP-Chaincode-HF is executed, itself executed by startFabric.sh . If you already installed PRP-Chaincode-HF, this folder is located at `PRP-Chaincode-HF/PRS/hfc-key-store`
 
 * Get back to the root of the folder `cd ..` and issue `npm start`.
 

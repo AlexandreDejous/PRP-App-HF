@@ -27,7 +27,11 @@ var bundle ={
 
 		//
 		var member_user = null;
-		var custom_path = path.join(__dirname, '../../hyperledger/PRP-Chaincode-HF/PRS/hfc-key-store')
+		//
+		//CHANGE HERE /!\
+		var custom_path = path.join(__dirname, '../../somefolder/anotherone/PRS/hfc-key-store')
+		//CHANGE HERE /!\
+		//
 		var store_path = path.normalize(custom_path);
 		console.log('Store path:'+store_path);
 		var tx_id = null;
