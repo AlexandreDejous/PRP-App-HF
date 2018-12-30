@@ -7,7 +7,7 @@ To work correctly, this app requires you to install PRP-Chaincode-HF first.
 
 * Clone this repository anywhere on your system.
 
-* Open a terminal in PRP-Chaincode-HF and issue `npm install`.
+* Open a terminal in PRP-App-HF and issue `npm install`.
 
 * Go to the blockchain folder `cd blockchain` and issue `npm install` again.
 
