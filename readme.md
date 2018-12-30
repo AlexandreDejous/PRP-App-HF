@@ -1,20 +1,21 @@
-What it is:
+# Product Registration System Demo - Express App
 
-An Express app working with node.js and jade, which prints on a webpage (localhost:3000) all the car data that reside in the fabcar network
+This repository provides an Express Application to interact with the Blockchain (https://github.com/AlexandreDejous/PRP-Chaincode-HF) without the CLI.
+To work correctly, this app requires you to install PRP-Chaincode-HF first.
 
-How to make it work from ground zero (I advice you to do it the way the tutorial does it first):
+## Manual of the user
 
-Download preriquisites: 
-https://hyperledger-fabric.readthedocs.io/en/release-1.3/prereqs.html
+* Clone this repository anywhere on your system.
 
-Install Samples, Binaries and Docker Images: 
-https://hyperledger-fabric.readthedocs.io/en/release-1.3/install.html
+* Open a terminal in PRP-Chaincode-HF and issue `npm install`.
 
-Install node-modules, launch the fabcar network with node option activated (./startFabric.sh node), enroll Admin, register User and you're done with the hyperledger-part (or not): 
-https://hyperledger-fabric.readthedocs.io/en/release-1.3/write_first_app.html
+* Go to the blockchain folder `cd blockchain` and issue `npm install` again.
 
-Pull from this repository anywhere on your file system
+* Now, open with a text editor query.js and invoke.js, they're situated in the blockchain folder.
+You need to change in the code the relative path pointing to the hfc-key-store (line 30 in query.js and 32 in invoke.js). The hfc-key-store is a folder created when the script enrollAdmin.js from PRP-Chaincode-HF is executed, itself executed by startFabric.sh . If you already installed PRP-Chaincode-HF, this folder is located at `PRP-Chaincode-HF/PRS/`
 
-From the root of this project go to the "Blockchain" directory and open in a text editor query.js. As you can (or will) see it's a lot similar to the query.js inside the fabcar directory of fabric-samples.
-/!\ Now, you need to modify the relative path to the hfc-key-store of the fabcar network (which is created when you launch in your cli the command "node enrollAdmin") from this file, it's line 32 in the code. /!\
+* Get back to the root of the folder `cd ..` and issue `npm start`.
 
+* Open a web browser and access localhost:3000 .
+
+* If you installed correctly PRP-Chaincode-HF and launched its network -> You can now query all products, add a new product (the "type" field must be either filled with refrigerator or lighting), modify a product, change the status of a product, search for a product and get the history of changes for a product.
